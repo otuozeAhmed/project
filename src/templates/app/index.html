@@ -1,0 +1,45 @@
+{% extends 'app/_base.html' %}
+
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+<!-- Team -->
+<section id="team" class="pb-5">
+    <div class="container">
+        <div class="row">
+            <!-- Team member -->
+            {% for post in list %}
+            <div class="col-xs-12 col-sm-6 col-md-4 shadow">
+                <div class="image-flip" >
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><i class="fas fa-user-edit"></i></p>
+                                    <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.group }}</a></h4>
+                                    <p class="card-text">{{post.text}}</p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.group }}</a></h4>
+                                    <p class="card-text">{{ post.text }}</p>
+                                    <h5><a id="click" href="{{ post.get_absolute_url }}">click here for more!</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            {% endfor %}       
+        </div>
+    </div>
+</section>
+{% endblock content %}
