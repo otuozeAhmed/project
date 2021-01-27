@@ -7,10 +7,16 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# I've detached my secret from settings.py to .env for security reasons
-SECRET_KEY=config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+SECRET_KEY = '0dq)@guy_us&=k8@5=c_we&5(gv+p7x7siwg80!d8b%zlis^$3'
+DEBUG=True
+ALLOWED_HOSTS = []
+
+# I've detached my secret from settings.py to .env for security reasons but left it open here for testing sake
+
+# SECRET_KEY=config('SECRET_KEY')
+# DEBUG = config('DEBUG', default=False, cast=bool)
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Application definition
 
