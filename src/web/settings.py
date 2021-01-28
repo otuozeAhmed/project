@@ -135,7 +135,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 LOGIN_REDIRECT_URL = 'home'
-ACCOUNT_LOGOUT_REDIRECT = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # my site ID is set here to one because i'm not being consumed by another frontend framework.
 # In cases where React is used for my frontend, which consumes an API written in Django, then site ID will be 2 

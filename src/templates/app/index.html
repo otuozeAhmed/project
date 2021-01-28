@@ -11,7 +11,8 @@
     <div class="container">
         <div class="row">
             <!-- Team member -->
-            {% for post in list %}
+           {% if user.is_authenticated and user.is_group == 'one' %}
+            {% for post in viewset_one %}
             <div class="col-xs-12 col-sm-6 col-md-4 shadow">
                 <div class="image-flip" >
                     <div class="mainflip flip-0">
@@ -38,7 +39,75 @@
                 </div>
             </div>
             <!-- ./Team member -->
-            {% endfor %}       
+            {% endfor %}
+            {% elif user.is_authenticated and user.is_group == 'two' %}
+                {% for post in viewset_two %}
+            <div class="col-xs-12 col-sm-6 col-md-4 shadow">
+                <div class="image-flip" >
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><i class="fas fa-user-edit"></i></p>
+                                    <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.group }}</a></h4>
+                                    <p class="card-text">{{post.text}}</p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.group }}</a></h4>
+                                    <p class="card-text">{{ post.text }}</p>
+                                    <h5><a id="click" href="{{ post.get_absolute_url }}">click here for more!</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            {% endfor %}
+
+            {% elif user.is_authenticated and user.is_group == 'three' %}
+                {% for post in viewset_three %}
+            <div class="col-xs-12 col-sm-6 col-md-4 shadow">
+                <div class="image-flip" >
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><i class="fas fa-user-edit"></i></p>
+                                    <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.group }}</a></h4>
+                                    <p class="card-text">{{post.text}}</p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.group }}</a></h4>
+                                    <p class="card-text">{{ post.text }}</p>
+                                    <h5><a id="click" href="{{ post.get_absolute_url }}">click here for more!</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            {% endfor %}
+
+            {% else %}
+            <h2>Kindly Login or Sign Up To View This Page's Content</h2>
+            
+            {% endif %} 
+
+
+            
+                 
         </div>
     </div>
 </section>

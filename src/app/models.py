@@ -5,13 +5,17 @@ from django.contrib.auth import get_user_model
 
 class Data(models.Model):
 
-    superuser = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True)
-    uzer      = models.CharField(max_length=50, null=True)
-    group     = models.CharField(max_length=100)
+    GROUP_CHOICES = (
+        ('one', 'One'),
+        ('two', 'Two'),
+        ('three', 'Three')
+    )
+
+    group     = models.CharField(max_length=20, choices=GROUP_CHOICES, default='one')
     text      = models.TextField()
 
     def __str__(self):
-        return self.text[:50]
+        return self.text[:30]
 
     def get_absolute_url(self):
         return reverse('card_detail', args=[str(self.id)])

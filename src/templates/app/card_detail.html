@@ -22,14 +22,7 @@
                                     <h4 class="card-title">{{object.group}}</h4>
                                     <p class="card-text">{{object.text}}</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>                  
-                                    <h4>Members:</h4>
-                                {% if user.is_authenticated %}
-                                    <a class="btn btn-primary btn-sm"> {{ object.superuser }} </a>
-                                    <a class="btn btn-warning btn-sm" %}"> {{ object.uzer }} </a>
-                                {% else %}
-                                    <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm"> {{ object.superuser }} </a>
-                                    <a class="btn btn-warning btn-sm" href="{% url 'account_login' %}"> {{ object.uzer }} </a>
-                                {% endif %}
+                                    
                                 {% if user.is_authenticated %} {% if user.is_staff %}
                                     <em><p>Logged in status - SuperUser</p></em>
                                 {% else %}
