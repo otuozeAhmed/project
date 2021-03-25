@@ -15,6 +15,7 @@ class HomePageView(ListView):
     # template_name = 'app/index.html'
 
     def get(self, request):
+        
         viewset_one = Data.objects.filter(group='one')
         viewset_two = Data.objects.filter(group='two')
         viewset_three = Data.objects.filter(group='three')
